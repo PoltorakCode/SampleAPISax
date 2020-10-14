@@ -1,11 +1,10 @@
 package bookstore;
 
-import java.io.File;
-import java.io.IOException;
 import java.io.InputStream;
-import java.util.List;
+
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
+
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -17,11 +16,12 @@ public class buchladenSAX {
 
 		
 		//test änderung 2.0
-		try {
-			InputStream in = ClassLoader.class.getResourceAsStream("/buchladen.xml");			
+		try(InputStream in =  buchladenSAX.class.getResourceAsStream("/buchladen.xml");) {						
 			SAXParserFactory fact = SAXParserFactory.newInstance();
 			SAXParser sp = fact.newSAXParser();
-			sp.parse(in, new ProductHandler());
+			sp.parse(in, new ProductHandler());		
+			
+			//sp.parse(in, new ProductHandler());
 		}
 		catch(Exception ex) {
 			ex.printStackTrace();
@@ -33,7 +33,7 @@ public class buchladenSAX {
 
 		private int count = 0;
 		private String tagName = "";
-		private String tagName2 = "";
+	//	private String tagName2 = "";
 		boolean bprice = false;
 		boolean btitel = false;
 		
