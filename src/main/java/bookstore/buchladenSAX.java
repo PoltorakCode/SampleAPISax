@@ -1,8 +1,11 @@
 package bookstore;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.List;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
-
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -12,13 +15,13 @@ public class buchladenSAX {
 	public void display() {
 		// TODO Auto-generated method stub
 
+		
+		//test änderung 2.0
 		try {
 			InputStream in = ClassLoader.class.getResourceAsStream("/buchladen.xml");			
 			SAXParserFactory fact = SAXParserFactory.newInstance();
 			SAXParser sp = fact.newSAXParser();
 			sp.parse(in, new ProductHandler());
-			
-			
 		}
 		catch(Exception ex) {
 			ex.printStackTrace();
@@ -36,7 +39,7 @@ public class buchladenSAX {
 		
 		@Override
 		public void characters(char[] chars, int startindex, int endindex) throws SAXException {
-			//test den wert des ganzen ladens/artikel im laden
+//test den wert des ganzen ladens/artikel im laden
 //		if(bprice) {		
 //			String z = new String(chars, startindex, endindex);
 //			Double i = Double.valueOf("z");	
