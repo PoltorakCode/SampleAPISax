@@ -13,12 +13,15 @@ public class buchladenSAX {
 		// TODO Auto-generated method stub
 
 		try {
+			InputStream in = ClassLoader.class.getResourceAsStream("/buchladen.xml");			
 			SAXParserFactory fact = SAXParserFactory.newInstance();
 			SAXParser sp = fact.newSAXParser();
-			sp.parse("C:\\Users\\Nessi\\eclipse-workspace\\xml-sample\\buchladen.xml", new ProductHandler());
+			sp.parse(in, new ProductHandler());
+			
+			
 		}
 		catch(Exception ex) {
-			System.out.println(ex.getMessage());
+			ex.printStackTrace();
 		}
 		
 	}
@@ -57,7 +60,7 @@ public class buchladenSAX {
 		}
 
 		//Event= endElement
-		//und die soll er z‰hlen (bzw immer wenn ein book endet)
+		//und die soll er z√§hlen (bzw immer wenn ein book endet)
 		@Override
 		public void endElement(String nuri, String localname, String qualifiedname) throws SAXException {
 			tagName = qualifiedname;
