@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<bookstore>
+	<book isbn="98012345">
+		<title>Lord of the Rings</title>
+		<author>Tolkien</author>
+		<price>10.99</price>
+		<genre>fantasy</genre>
+		<count>10</count>
+		<kind>softcover</kind>
+		<language>english</language>
+	</book>
+
+	<book isbn="98012346">
+		<title>Das Schaf</title>
+		<author>Shaun</author>
+		<price>20.99</price>
+		<genre>kinder</genre>
+		<count>4</count>
+		<kind>hardcover</kind>
+		<language>deutsch</language>
+	</book>
+
+	<book isbn="98012347">
+		<title>Harry Potter</title>
+		<author>Tolkien</author>
+		<price>9.99</price>
+		<genre>fantasy</genre>
+		<count>2</count>
+		<kind>hardcover</kind>
+		<language>english</language>
+	</book>
+
+	<book isbn="98012348">
+		<title >Sammlung Grimms Märchen</title>
+		<author>Gebrüder Grimm</author>
+		<price >30</price>
+		<genre>märchen</genre>
+		<count>2</count>
+		<kind>audio book</kind>
+		<language>deutsch</language>
+	</book>
+
+</bookstore>

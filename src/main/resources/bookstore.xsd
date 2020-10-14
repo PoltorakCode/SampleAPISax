@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/bookstore"
+	xmlns:tns="http://www.example.org/bookstore"
+	elementFormDefault="qualified">
+
+    <element name="bookstore" type="tns:buchladen"></element>
+	<complexType name="buchladen">
+		<sequence>
+			<element name="book" type="tns:buch" maxOccurs="unbounded" minOccurs="1"></element>
+		</sequence>
+	</complexType>
+
+	<element name="book" type="tns:buch"></element>
+	<complexType name="buch">
+		<sequence>
+			<element name="title" type="string"></element>
+			<element name="author" type="string"></element>
+			<element name="price">
+				<simpleType>
+					<restriction base="double">
+						<minExclusive value="0"></minExclusive>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="genre" type="string"></element>
+			<element name="count">
+				<simpleType>
+					<restriction base="int">
+						<minExclusive value="0"></minExclusive>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="kind">
+				<simpleType>
+					<restriction base="string">
+						<enumeration value="hardcover"></enumeration>
+						<enumeration value="softcover"></enumeration>
+						<enumeration value="audio book"></enumeration>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="language">
+				<simpleType>
+					<restriction base="string">
+						<enumeration value="deutsch"></enumeration>
+						<enumeration value="englisch"></enumeration>
+						<enumeration value="französisch"></enumeration>
+						<enumeration value="russisch"></enumeration>
+					</restriction>
+				</simpleType>
+			</element>
+		</sequence>
+		<attribute name="isbn" use="required">
+			<simpleType>
+				<restriction base="string">
+					<minLength value="1"></minLength>
+					<maxLength value="15"></maxLength>
+					<pattern value="(\d)+"></pattern>
+				</restriction>
+			</simpleType>
+		</attribute>
+	</complexType>
+</schema>
